@@ -1,0 +1,6 @@
+// 負責統整每個 scss 檔案
+@import "~bootstrap/scss/functions"; // import bootstrap 套用變數的方法
+@import "./helpers/_variables.scss"; // import 客製化變數
+@import "~bootstrap/scss/bootstrap"; // import node_modules 裡的 bootstrap
+
+@import "./_dashboard";

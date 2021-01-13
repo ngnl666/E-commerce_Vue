@@ -14,6 +14,11 @@
                         <i class="fas fa-box-open mr-1"></i>產品列表
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/admin/coupons" class="nav-link">
+                        <i class="fas fa-ticket-alt"></i> 優惠券
+                    </router-link>
+                </li>
             </ul>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>模擬功能</span>
@@ -23,10 +28,9 @@
             </h6>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="file-text"></span>
-                        模擬訂單
-                    </a>
+                    <router-link to="/customer_orders" class="nav-link">
+                        <i class="fas fa-shopping-cart mr-1"></i>模擬訂單
+                    </router-link>
                 </li>
             </ul>
         </div>

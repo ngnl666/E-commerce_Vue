@@ -37,7 +37,7 @@ export default {
     }
   },
   methods: {
-    getPage(page) { // es6 參數預設值(沒帶參數則使用此預設值)
+    getPage(page) { 
         this.$emit("calcPage", page); // 向外傳出至 Products.vue
     },
   },

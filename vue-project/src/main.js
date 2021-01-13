@@ -14,7 +14,8 @@ window.$ = $; // 全域設定 jquery
 import App from './App'
 import router from './router'
 import './bus'    
-import currencyFilter from './filters/currency'  
+import currencyFilter from './filters/currency'
+import dateFilter from './filters/date'
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
@@ -22,6 +23,7 @@ Vue.use(VueAxios, axios);
 
 Vue.component('Loading', Loading); // 全域註冊 component
 Vue.filter('currency', currencyFilter); // 全域註冊 filter
+Vue.filter('date', dateFilter); // 全域註冊 filter
 
 /* eslint-disable no-new */
 new Vue({

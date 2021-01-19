@@ -84,6 +84,62 @@
                 </div>
             </div>
         </div>
+        <!--form-->
+        <div class="my-5 row justify-content-center">
+            <!-- form 外層加入 validation-observer 來幫助驗證整個表單送出-->
+            <validation-observer class="col-md-6" v-slot="{ invalid }">
+                <form @submit.prevent="createOrder">
+                    <!-- 有關 vee-validate 請見 https://courses.hexschool.com/courses/vue/lectures/26741635 -->
+                    <!-- v-slot 可將外部元件的 data 導進子元件 -->
+                    <validation-provider rules="required|email" v-slot="{ errors, classes }">
+                        <div class="form-group">
+                            <!-- 輸入框 -->
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" placeholder="請輸入電子郵件"
+                                v-model="form.user.email" class="form-control" :class="classes">
+                            <!-- 錯誤訊息 -->
+                            <span class="invalid-feedback">{{ errors[0] }}</span>
+                        </div>
+                    </validation-provider>
+                
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                        <div class="form-group">
+                            <label for="username">收件人姓名</label>
+                            <input id="username" type="text"  name="name" placeholder="請輸入姓名"
+                                v-model="form.user.name" class="form-control" :class="classes">
+                            <span class="invalid-feedback">{{ errors[0] }}</span>
+                        </div>
+                    </validation-provider>
+                
+                    <validation-provider rules="required|numeric|min:8" v-slot="{ errors, classes }">
+                        <div class="form-group">
+                            <label for="usertel">收件人電話</label>
+                            <input id="usertel" type="tel" name="tel" placeholder="請輸入電話"
+                                v-model="form.user.tel" class="form-control" :class="classes">
+                            <span class="invalid-feedback">{{ errors[0] }}</span>
+                        </div>
+                    </validation-provider>    
+                
+                    <validation-provider rules="required" v-slot="{ errors, classes }">
+                        <div class="form-group">
+                            <label for="useraddress">收件人地址</label>
+                            <input id="useraddress" type="text" name="address" placeholder="請輸入地址"
+                                v-model="form.user.address" class="form-control" :class="classes">
+                            <span class="invalid-feedback">{{ errors[0] }}</span>
+                        </div>
+                    </validation-provider>  
+                
+                    <div class="form-group">
+                        <label for="comment">留言</label>
+                        <textarea id="comment" name="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
+                    </div>
+
+                    <div class="text-right">
+                        <button class="btn btn-danger" :disabled="invalid">送出訂單</button>
+                    </div>
+                </form>
+            </validation-observer>    
+        </div>
         <!--modal-->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,7 +170,10 @@
                     </div>
                     <div class="modal-footer">
                         <div class="text-muted text-nowrap mr-3">
-                            小計 <strong>{{ product.num * product.price }}</strong> 元
+                            小計 
+                            <strong v-if="product.price">{{ product.num * product.price }}</strong> 
+                            <strong v-if="!product.price">{{ product.num * product.origin_price }}</strong>
+                            元
                         </div>
                         <button type="button" class="btn btn-primary"
                                 @click="addToCart(product.id, product.num)">
@@ -137,6 +196,15 @@ export default {
             cart: [],
             status:{
                 loadingItem: '',
+            },
+            form:{
+                user:{
+                    name: '',
+                    email: '',
+                    tel: '',
+                    address: '',
+                },
+                message: '',
             },
             isLoading: false,
             checkNoItem: false,
@@ -212,6 +280,19 @@ export default {
                 vm.isLoading = false;
             });
         },
+        createOrder() {
+            const vm = this;
+            const api = `${process.env.APIPATH}/api/${process.env.CUSTOMERPATH}/order`;
+            const order = vm.form;
+            vm.isLoading = true;
+            this.$http.post(api, { data:order }).then((response) => {
+                console.log('訂單已建立', response);
+                if(response.data.success){
+                    vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+                }
+                vm.isLoading = false;
+            });
+        }
     },
     created() {
         this.getProducts();

@@ -5,8 +5,10 @@ import Router from 'vue-router'
 import Login from '@/components/pages/Login'
 import Dashboard from '@/components/Dashboard'
 import Products from '@/components/pages/Products'
-import CustomerOrders from '@/components/pages/CustomerOrders'
 import Coupons from '@/components/pages/Coupons'
+import AllOrders from '@/components/pages/AllOrders'
+import CustomerOrders from '@/components/pages/CustomerOrders'
+import CustomerCheckout from '@/components/pages/CustomerCheckout'
 
 Vue.use(Router)
 
@@ -38,6 +40,12 @@ export default new Router({
           component: Coupons,
           meta: { requiresAuth: true },
         },
+        {
+          path: 'all_orders', // 所有訂單頁(需驗證才能進入)
+          name: 'AllOrders',
+          component: AllOrders,
+          meta: { requiresAuth: true },
+        },
       ],
     },
     {
@@ -49,6 +57,11 @@ export default new Router({
           path: 'customer_orders', // 模擬訂單頁
           name: 'CustomerOrders',
           component: CustomerOrders,
+        },
+        {
+          path: 'customer_checkout/:orderId', // 模擬結帳頁面
+          name: 'CustomerCheckout',
+          component: CustomerCheckout,
         },
       ],
     },

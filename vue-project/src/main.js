@@ -4,12 +4,17 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
+// import VueI18n from 'vue-i18n' // VueI18n 多國語系
+import { ValidationObserver, ValidationProvider, extend, localize, configure } from 'vee-validate'; // 導入 vee-validate
+import TW from 'vee-validate/dist/locale/zh_TW.json' // 導入 vee-validate 的中文語系
+import * as rules from 'vee-validate/dist/rules'; // 導入 vee-validate 的規則
 
 import 'bootstrap'
 import $ from 'jquery'; 
 window.$ = $; // 全域設定 jquery
+
 // 再來是本地的 import
 import App from './App'
 import router from './router'
@@ -31,6 +36,22 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+});
+
+Object.keys(rules).forEach((rule) => { // 一一導出規則
+  extend(rule, rules[rule]);
+});
+
+localize('zh_TW', TW);
+
+Vue.component('ValidationObserver', ValidationObserver); // 針對表單驗證的元件
+Vue.component('ValidationProvider', ValidationProvider); // 針對 input 驗證的元件
+
+configure({
+  classes: {
+    valid: 'is-valid',
+    invalid: 'is-invalid'
+  }
 });
 
 // 直接寫在 main.js 是因為全域都需要用到(檢查是否登入跳轉)

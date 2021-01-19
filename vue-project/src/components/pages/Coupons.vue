@@ -164,7 +164,7 @@ export default {
                 vm.tempCoupon = Object.assign({}, item);
                 // 2011-10-05T14:48:00.000Z
                 const dateAndTime = new Date(vm.tempCoupon.due_date * 1000).toISOString().split('T');
-                vm.due_date = dateAndTime[0];
+                vm.due_date = dateAndTime[0]; //["2021-02-06", "00:00:00.000Z"] 取第0個
                 vm.isNew = false;
             }else{
                 vm.tempCoupon = {};
@@ -185,7 +185,7 @@ export default {
             if(!vm.isNew){ // 更新優惠券
                 api = `${process.env.APIPATH}/api/${process.env.CUSTOMERPATH}/admin/coupon/${vm.tempCoupon.id}`;
                 httpMethod = 'put';
-                vm.due_date = new Date(vm.tempCoupon.due_date * 1000); // 更新必須重取得時間
+                vm.due_date = new Date(vm.tempCoupon.due_date * 1000); // 更新必須把時間乘回去再丟進API
             }
             this.$http[httpMethod](api, { data:vm.tempCoupon }).then((response) => {
                 if(response.data.success){

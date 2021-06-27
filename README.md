@@ -1,6 +1,6 @@
 # CoffeeBean
 
-[![CoffeeBean](https://ibb.co/HgyMyP8)](https://ibb.co/HgyMyP8)
+[![CoffeeBean](https://i.postimg.cc/XNtXVKCy/2021-06-27-4-12-05.png)](https://i.postimg.cc/XNtXVKCy/2021-06-27-4-12-05.png)
 
 Demo: https://ngnl666.github.io/CoffeeBean/#/
 

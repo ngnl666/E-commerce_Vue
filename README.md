@@ -15,9 +15,11 @@ Demo: https://ngnl666.github.io/CoffeeBean/#/
 ▪️ Favorite 我的收藏 : 放置我的收藏商品，以及我的優惠券  
 ▪️ Pick 抽卡系統 : 抽取優惠券並存放置我的收藏頁面  
 ▪️ Cart 購物車 : 購物車系統，分為三個部分如下  
-  ├── CustomerCart : 檢視購物車內的商品，可進行數量更改與刪除  
-  ├── CustomerImformation : 個人資料填寫以及訂單確認  
-  ├── CustomerOrder : 訂單成立，進行付款  
+├── CustomerCart : 檢視購物車內的商品，可進行數量更改與刪除
+|
+├── CustomerImformation : 個人資料填寫以及訂單確認  
+|
+├── CustomerOrder : 訂單成立，進行付款
 
 📍 後台 :  
 ▪️ Login 登入系統 : 管理者後台，分為三個部份如下  

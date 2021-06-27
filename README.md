@@ -49,6 +49,8 @@ Demo: https://ngnl666.github.io/CoffeeBean/#/
 
 ▪️ Token : Verification with token
 
+▪️ LocalStorage : Use on shopping cart & favorite product
+
 ▪️ Intersection Observer API : Replace scroll event, bring more efficiency   
 
 ▪️ Return Guard : Use in IF statement

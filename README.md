@@ -1,14 +1,16 @@
 # CoffeeBean
 
-![CoffeeBean](https://drive.google.com/file/d/1L_o7avH0fUe1sRN5dGfhz2JGnSEvE1gn/view?usp=sharing)
+[![CoffeeBean](https://ibb.co/HgyMyP8)](https://ibb.co/HgyMyP8)
 
 Demo: https://ngnl666.github.io/CoffeeBean/#/
 
 ## 簡介及專案架構 Introduction & Architecture
 
-💻 使用 Vue.js 開發的咖啡電商網站
+```
+使用 Vue.js 開發的咖啡電商網站
+```
 
-📍 前台 :  
+### 📍 前台 :  
 ▪️ Home 首頁 : 網站介紹頁及咖啡特色介紹  
 ▪️ Shop 商品頁 : 各式各樣商品，可進行分類篩選、加入購物車、加入我的收藏、商品細節導覽  
 ▪️ DetailCard 商品詳細頁 : 單一商品細節，可選擇數量並加入購物車、顯示目前所在分類及下方商品推薦  
@@ -19,7 +21,7 @@ Demo: https://ngnl666.github.io/CoffeeBean/#/
 - CustomerImformation : 個人資料填寫以及訂單確認  
 - CustomerOrder : 訂單成立，進行付款  
 
-📍 後台 :  
+### 📍 後台 :  
 ▪️ Login 登入系統 : 管理者後台，分為三個部份如下  
 - ProductList : 管理商品詳細資訊，可進行增刪修改  
 - Coupon : 管理優惠券，可進行增刪修改  

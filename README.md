@@ -35,59 +35,61 @@ Demo: https://ngnl666.github.io/CoffeeBean/#/
 
 ## 使用技術 Technologies
 
+▪️ Vue3 : Use Options API 
+
 ▪️ Vue CLI4 : SPA  
 
-▪️ Vue Router : Navigation Guards、Asynchronous Import Components  
+▪️ Vuex4 : State Management Pattern、Using Modules
 
-▪️ ESLint(Standard) : 統一撰寫程式碼的風格  
+▪️ Vue Router4 : Navigation Guards、Async Components
 
-▪️ Axios : 處理 AJAX 請求，串接 API 取得後台資料  
+▪️ VeeValidate4 : Form & Input Validation 
 
-▪️ VeeValidate : 驗證訂單內容 
+▪️ Axios : 串接 API  
 
-▪️ RWD : 根據桌電、平板、手機不同裝置來做內容響應變化 
+▪️ Token : Verification with token
 
-▪️ jQuery : 產品選單下拉動態  
+▪️ Intersection Observer API : Replace scroll event, bring more efficiency   
 
-▪️ Bootstrap 4 + CSS 預處理器（SCSS）: 客製樣式（顏色、字體），製作個人風格網頁  
+▪️ Return Guard : Use in IF statement
+
+▪️ RWD : Responsive Website For Pad & Smartphone 
+
+▪️ SCSS + Customer BS5 : CSS preprocessor & Customized BS5 variables 
 
 
-## 套件
+## 套件 Extensions
 
-- vue
-- bootstrap
-- jquery
-- popper.js
-- vue-axios 、 axios 串接 API
-- vue-router 管理由前端所模擬的路由器
-- vue-loading-overlay 全畫面 Loading 小動畫
-- vue-awesome-swiper 、swiper 輪播功能
-- vee-validate 驗證表單
-- fontawesome CDN icon 小圖示
+- vue-axios
+- vue-loading-overlay
+- ESLint + Prettier
+- Bootstrap5
+- fontawesome
+- animate.css
+- hover.css
+- sweetalert
 
-## 特色功能介紹
+## Project Setup
+```
+npm install
+```
 
-> 回饋訊息與購車數量圖示更新 : 搭配 event bus 掛載到 Vue 原型下，讓不同的 Vue 實例可以共享
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-[![2.png](https://i.postimg.cc/X7rDzj9r/2.png)](https://postimg.cc/ZChc9h7m)
+### Compiles and minifies for production
+```
+npm run build
+```
 
-> 訂閱功能 : 信箱驗證格式是否正確與有無使用過、點擊優惠碼即複製
+### Lints and fixes files
+```
+npm run lint
+```
 
-[![3.png](https://i.postimg.cc/TP671nFb/3.png)](https://postimg.cc/qN1XZ6kB)
+## 聲明 Statement
 
-> 產品列表分類 : 篩選後顯示想要的產品
-
-[![4.png](https://i.postimg.cc/Z53sJw7Z/4.png)](https://postimg.cc/18mrHr1Y)
-
-> 訂單流程 : 輸入優惠碼執行價錢打折、驗證客戶資料內容
-> [![5.png](https://i.postimg.cc/yY2rqMTv/5.png)](https://postimg.cc/sv9J70qh)
-
-## Vue.filter 過濾功能
-
-- [千分號與金錢符號](https://github.com/Skyice-Chiang/blanco-coffee/blob/master/src/filters/currency.js)
-- [Unix timestamp 轉換成日期](https://github.com/Skyice-Chiang/blanco-coffee/blob/master/src/filters/date.js)
-
-## 聲明
-
-- 此網站僅作為個人練習用，無商業用途
-- 圖片來源: [unsplash](https://unsplash.com/)、Google 圖片、PCHome 圖片
+- 僅作為個人作品練習，所有資料皆來自網路，無商業用途
+- 圖片來源: Unsplash、Google、Starbucks、PCHome
